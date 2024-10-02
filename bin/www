@@ -90,6 +90,13 @@ function onListening() {
 }
 import app from '../app';
 
-export function handler() {
-  return app;
+import app from '../app';
+
+export async function handler(event, context) {
+  const request = event.request;
+  const response = await app(request);
+  return {
+    statusCode: response.statusCode,
+    body: response.body,
+  };
 }
