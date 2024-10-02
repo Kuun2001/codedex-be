@@ -3,6 +3,13 @@ var router = express.Router();
 const pokemonType = require("../pokemonType")
 const fs = require("fs")
 
+router.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, DELETE, POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Accept, Accept-Language, Accept-Encoding');
+  next();
+});
+
 router.get('/pokemons', function (req, res, next) {
   try {
     let pokemons = JSON.parse(fs.readFileSync("pokemons.json"))
