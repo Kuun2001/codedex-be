@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import app from '../app';
+
 /**
  * Module dependencies.
  */
@@ -87,16 +87,4 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
-}
-import app from '../app';
-
-import app from '../app';
-
-export async function handler(event, context) {
-  const request = event.request;
-  const response = await app(request);
-  return {
-    statusCode: response.statusCode,
-    body: response.body,
-  };
 }
