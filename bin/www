@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+import app from '../app';
 /**
  * Module dependencies.
  */
@@ -87,4 +87,9 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+}
+import app from '../app';
+
+export function handler() {
+  return app;
 }
